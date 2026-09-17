@@ -1,0 +1,9 @@
+column_name,current_dtype,business_description,sensitivity_level,cleaning_or_governance_notes,sharing_guidance
+employee_id,str,Internal employee identifier,Confidential internal identifier,Should be unique; validate non-numeric and duplicate values,Restrict to authorized users who need record-level traceability
+first_name,str,Employee first name,Direct identifier / PII,Not needed for most analytical summaries,Remove unless the approved purpose requires a name
+last_name,str,Employee last name,Direct identifier / PII,Not needed for most analytical summaries,Remove unless the approved purpose requires a name
+hire_date,str,Employee hire date,Quasi-identifier,Parse and validate dates before analysis,Required for tenure analysis; strip exact timestamps before publishing aggregate reports.
+department,str,Employee department,Business attribute,Clarify valid categories and business definitions,Review disclosure risk when combined with other fields
+salary,str,Employee salary,Sensitive financial/business information,Convert to numeric and investigate missing or invalid values,Restrict access to HR and finance analytics teams only; mask for general reporting.
+age,str,Employee age,Quasi-identifier,Convert to numeric and investigate impossible values,Group into ranges or remove for broad sharing
+full_time,str,Whether the employee works full time,Employment attribute,Clarify meaning and standardize valid values,Use only when relevant to the approved purpose
